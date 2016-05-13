@@ -53,8 +53,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 *               | `    | '    | LEFT | RIGHT| Alt  |                              | MDIA | DOWN | [    | ]    | MDIA | 
 *               | SYMB |      |      |      |      |                              |      |      |      |      |      | 
 *               \-----\\-----\\-----\\-----\/-----//-----/   /-----//-----/       \-----\\-----\\-----\\-----\\-----\  
-*                                           | APP  | Cmd  |  | Alt  | ESC  |                                           
-*                                           | ALT  |      |  |      | Ctrl |                                           
+*                                           | CMD+C| CMD+V|  | Alt  | ESC  |                                           
+*                                           |      |      |  |      | Ctrl |                                           
 *                                           \-----\/-----/   /-----/\-----\                                            
 *                                                  | HOME |  | PGUP |                                                  
 *                                                  |      |  |      |                                                  
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, 
     KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, ALL_T(KC_NO), 
                   LT(SYMB,KC_GRV), KC_QUOT, KC_LEFT, KC_RIGHT, KC_LALT, 
-                                              ALT_T(KC_APP), KC_LGUI, 
+                                              LGUI(DV_C), LGUI(DV_V), 
                                                      KC_HOME, 
                                        KC_SPC, KC_BSPC, GUI_T(KC_END), 
     //right half
@@ -209,12 +209,15 @@ case 0:
 
 
 
+
+
         if (record->event.pressed) {
           register_code(KC_RSFT);
         } else {
           unregister_code(KC_RSFT);
         }
         
+
 
 
 
